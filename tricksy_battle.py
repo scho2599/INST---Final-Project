@@ -1,4 +1,4 @@
-#Consolidation Project Shua Cho
+#Consolidation Project Imported for final submission as Final Project Shua Cho
 
 import random
 
