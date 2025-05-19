@@ -17,15 +17,15 @@ player2_hand = [deck.pop() for _ in range(8)]
 #We need to initialize scores as well as the starting platers 
 player1_points = 0
 player2_points = 0
-player_turn = random.choice([1, 2])
-round_number = 1
-reshuffle_count = 0
 
 #This will cause the starting turn to be chosen at random
 player_turn = random.choice([1, 2])
 
 round_number = 1
 reshuffle_count = 0
+
+#Adding a siumple dictionary so we can hold  player names
+player_names = {1: "Player 1", 2: "Player 2"}
 
 #We are able to convert the card value into a readable string 
 def card_str(card):
