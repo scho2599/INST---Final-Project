@@ -15,9 +15,10 @@ player1_hand = [deck.pop() for _ in range(8)]
 player2_hand = [deck.pop() for _ in range(8)]
 
 #We need to initialize scores as well as the starting platers 
-
 player1_points = 0
 player2_points = 0
+player_turn = random.choice([1, 2])
+
 
 #This will cause the starting turn to be chosen at random
 player_turn = random.choice([1, 2])
