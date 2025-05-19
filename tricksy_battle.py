@@ -18,7 +18,8 @@ player2_hand = [deck.pop() for _ in range(8)]
 player1_points = 0
 player2_points = 0
 player_turn = random.choice([1, 2])
-
+round_number = 1
+reshuffle_count = 0
 
 #This will cause the starting turn to be chosen at random
 player_turn = random.choice([1, 2])
