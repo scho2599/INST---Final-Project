@@ -14,6 +14,8 @@ random.shuffle(deck)
 player1_hand = [deck.pop() for _ in range(8)]
 player2_hand = [deck.pop() for _ in range(8)]
 
+#We need to initialize scores as well as the starting platers 
+
 player1_points = 0
 player2_points = 0
 
