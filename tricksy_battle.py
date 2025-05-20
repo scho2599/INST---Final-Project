@@ -43,6 +43,10 @@ def determine_round_winner(card1, card2, lead_suit):
     else:
         return 1  #If none of past conditions are met
 
+
+#Here is an exmaple test which I commented out for PATT 2.6
+# Print(determine_round_winner(("Hearts", 10), ("Hearts", 5), lead_suit= "Hearts"))
+
 #Here is the body of the main game loop
 while round_number <= 16 and player1_points < 9 and player2_points < 9:
     print(f"\nRound {round_number}")
@@ -73,14 +77,14 @@ while round_number <= 16 and player1_points < 9 and player2_points < 9:
         else:
             follow_card = player1_hand.pop(0)
 
-    print(f"Player {player_turn} plays: {card_str(lead_card)}")
-    print(f"Player {3 - player_turn} plays: {card_str(follow_card)}")
+    print(f"Player{player_turn} plays: {card_str(lead_card)}")
+    print(f"Player{3 - player_turn} plays: {card_str(follow_card)}")
 
     #This is determing the winner however note to self that there is a bug in this portrion causing wrong round outcomes MAKE SURE TO INCLUDE THIS IN README
     if player_turn == 1:
-        winner = determine_round_winner(lead_card, follow_card, follow_card[0])  
+        winner = determine_round_winner(lead_card, follow_card, follow_suit := follow_card[0])  
     else:
-        winner = determine_round_winner(follow_card, lead_card, follow_card[0])  
+        winner = determine_round_winner(follow_card, lead_card, follow_suit := follow_card[0])  
 
     if winner == 1:
         player1_points += 1
@@ -102,7 +106,6 @@ while round_number <= 16 and player1_points < 9 and player2_points < 9:
             if deck: player1_hand.append(deck.pop())
             if deck: player2_hand.append(deck.pop())
         reshuffle_count += 1
-
     round_number += 1
 
 #Ending functions for the game
@@ -120,3 +123,30 @@ elif player2_points >= 9:
     print("Player 2 wins!")
 else:
     print("No winner yet.")
+
+#Saving the final score to a file PATT4.1 and 4.4
+try:
+    with open("final_scores.txt", "w") as file:
+        file.write(f"Player 1: {Player1_points}\nPlayer 2: {Player2_points}\n")
+except Exception as e: 
+    print("There was an Error writing to file:", e)
+
+#While loop to ask if user wants to play the game again
+while True:
+    choice = input("Would you like to play again? (yes/no): ").lower()
+    if choice == "no":
+        print("Thanks for playing the game!")
+        break
+    elif choice == "yes":
+        print("Restart the program to play again.")
+        break
+    else:
+        print("Please enter yes or no to move forward.")
+        
+     
+
+
+    
+
+
+
